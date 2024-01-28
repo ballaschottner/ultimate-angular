@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
  @Component({
   selector: 'app-root',
@@ -8,8 +7,19 @@ import { RouterOutlet } from '@angular/router';
 
  })
  export class AppComponent {
-  title: string;
-  constructor() {
-    this.title = 'Ultimate Angular'
+  name: string = 'Bence';
+
+  handleChange(value: any) {
+    this.name = value;
+    console.log(value);
+  }
+
+  handleClick() {
+    this.name = 'valami';
+  }
+
+  handleValue(value: string) {
+    this.name = value;
+    console.log(value)
   }
  }

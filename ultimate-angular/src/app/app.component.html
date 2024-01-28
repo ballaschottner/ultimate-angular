@@ -1,1 +1,15 @@
-<h1 class="app">{{title}}</h1>
+<div>
+  <input 
+    type="text" 
+    (ngModelChange)="handleChange($event)"
+    [ngModel]="name"
+    >
+    <input 
+    type="text" 
+    [(ngModel)]="name"
+    >
+    <input type="text" #username>
+    <button (click)="handleClick()">Change name</button>
+    <button (click)="handleValue(username.value)">Get value</button>
+  <div>{{ name }}</div>
+</div>
