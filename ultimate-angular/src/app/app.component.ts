@@ -7,19 +7,9 @@ import { Component } from '@angular/core';
 
  })
  export class AppComponent {
-  name: string = 'Bence';
+  name: string = '';
 
-  handleChange(value: any) {
-    this.name = value;
-    console.log(value);
-  }
-
-  handleClick() {
-    this.name = 'valami';
-  }
-
-  handleValue(value: string) {
-    this.name = value;
-    console.log(value)
+  handleChange(event: any) {
+    this.name = event.target.value;
   }
  }
