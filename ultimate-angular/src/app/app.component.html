@@ -23,6 +23,9 @@
           <div>
             {{passenger.checkInDate ? (passenger.checkInDate | date: 'y.MMMM.d' | uppercase) : 'Not Checked In'}}
           </div>
+          <div>
+            Children: {{passenger.child?.length || 0}}
+          </div>
         </li>
       </ul>
     </div>

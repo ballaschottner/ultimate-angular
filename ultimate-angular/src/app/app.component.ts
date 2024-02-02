@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
+interface Child {
+  name: string,
+  age: number
+}
 interface Passengers {
   id: number,
   fullName: string,
   checkedIn: boolean,
-  checkInDate?: number
+  checkInDate?: number | null,
+  child?: Child[] | null,
 }
  @Component({
   selector: 'app-root',
@@ -23,7 +28,8 @@ interface Passengers {
     id: 1,
     fullName: 'Stephen',
     checkedIn: true,
-    checkInDate: 1490742000000
+    checkInDate: 1490742000000,
+    child: [{name: 'Ben', age: 18}]
   },
   {
     id: 2,
@@ -34,6 +40,7 @@ interface Passengers {
     id: 3,
     fullName: 'James',
     checkedIn: true,
-    checkInDate: 1490742000000
+    checkInDate: 1490742000000,
+    child: [{name: 'Ben', age: 18}]
   },]
  }
