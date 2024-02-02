@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Passengers } from "../models/passenger.interface";
 
 @Component({
@@ -22,30 +22,30 @@ import { Passengers } from "../models/passenger.interface";
         </div>
     `
 })
-export class PassengerDashboardComponent {
-    name: string = '';
+export class PassengerDashboardComponent implements OnInit {
+    passengers: Passengers[] = [];
 
-  handleChange(event: any) {
-    this.name = event.target.value;
-  }
-
-  passengers: Passengers[] = [{
-    id: 1,
-    fullName: 'Stephen',
-    checkedIn: true,
-    checkInDate: 1490742000000,
-    child: [{name: 'Ben', age: 18}]
-  },
-  {
-    id: 2,
-    fullName: 'Rose',
-    checkedIn: false,
-  },
-  {
-    id: 3,
-    fullName: 'James',
-    checkedIn: true,
-    checkInDate: 1490742000000,
-    child: [{name: 'Ben', age: 18}]
-  },]
+    ngOnInit() {
+        console.log('ngOnInit');
+        this.passengers = [{
+            id: 1,
+            fullName: 'Stephen',
+            checkedIn: true,
+            checkInDate: 1490742000000,
+            child: [{name: 'Ben', age: 18}]
+          },
+          {
+            id: 2,
+            fullName: 'Rose',
+            checkedIn: false,
+          },
+          {
+            id: 3,
+            fullName: 'James',
+            checkedIn: true,
+            checkInDate: 1490742000000,
+            child: [{name: 'Ben', age: 18}]
+          },]
+    }
+  
 }
