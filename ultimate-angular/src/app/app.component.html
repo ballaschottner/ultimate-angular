@@ -1,33 +1,3 @@
 <div class="app">
-  <input 
-    type="text"
-    [value]="name"
-    (input)="handleChange($event)">
-
-    <ng-template [ngIf]="name.length">
-      <div>
-        Searching for... {{ name }}
-      </div>
-    </ng-template>
-
-    <div *ngIf="name.length > 2">
-      Searching for... {{ name }}
-    </div>
-
-    <div>
-      <h3>Passengers</h3>
-      <ul>
-        <li *ngFor="let passenger of passengers; let i = index;">
-          <span class="status" [class.checked-in]="passenger.checkedIn"></span>
-          {{ i + 1 }}: {{passenger.fullName}}
-          <div>
-            {{passenger.checkInDate ? (passenger.checkInDate | date: 'y.MMMM.d' | uppercase) : 'Not Checked In'}}
-          </div>
-          <div>
-            Children: {{passenger.child?.length || 0}}
-          </div>
-        </li>
-      </ul>
-    </div>
-  
+  <passenger-dashboard></passenger-dashboard>
 </div>
