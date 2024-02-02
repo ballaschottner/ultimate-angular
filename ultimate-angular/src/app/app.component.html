@@ -16,11 +16,24 @@
 
     <div>
       <h3>Passengers</h3>
-        <ul>
-          <li *ngFor="let passenger of passengers; let i = index;">
-            {{ i + 1 }}: {{passenger.fullName}}
-          </li>
-        </ul>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index;">
+          <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+          {{ i + 1 }}: {{passenger.fullName}}
+        </li>
+      </ul>
+
+      <h3>Passengers</h3>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index;">
+          <span class="status" 
+          [ngClass]="{
+            'checked-in': passenger.checkedIn,
+            'checked-out': !passenger.checkedIn
+            }"></span>
+          {{ i + 1 }}: {{passenger.fullName}}
+        </li>
+      </ul>
     </div>
   
 </div>
