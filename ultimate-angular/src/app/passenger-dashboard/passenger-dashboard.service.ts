@@ -14,6 +14,21 @@ export class PassengerDashboardService {
       .pipe(
           map((response) => response.passengers)
       );
-      
-  }
+    }
+
+    updatePassenger(passenger: Passengers): Observable<Passengers> {
+      return this.http
+        .put(`${PASSENGER_API}/${passenger.id}`, passenger)
+        .pipe(
+          map((response: any) => response.passengers)
+        );
+    }
+
+    removePassenger(passenger: Passengers): Observable<Passengers> {
+      return this.http
+        .delete(`${PASSENGER_API}/${passenger.id}`)
+        .pipe(
+          map((response: any) => response.passengers)
+        );
+    }
 }
