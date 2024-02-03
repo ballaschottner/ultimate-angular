@@ -14,7 +14,7 @@ import { Passengers } from "../../models/passenger.interface";
         </div>
     `
 })
-export class PassengerCountComponent{
+export class PassengerCountComponent {
     @Input()
     items: Passengers[] = [];
 
