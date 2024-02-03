@@ -10,3 +10,7 @@ export interface Passengers {
     checkInDate?: number | null,
     child?: Child[] | null,
 }
+
+export interface Passenger {
+    passengers: Passengers[]
+}
