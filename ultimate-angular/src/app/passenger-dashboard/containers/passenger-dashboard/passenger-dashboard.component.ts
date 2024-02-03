@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { Passengers } from "../models/passenger.interface";
+import { Passengers } from "../../models/passenger.interface";
 
 @Component({
     selector: 'passenger-dashboard',
     styleUrls: ['passenger-dashboard.component.scss'],
     template: `
         <div>
+            <passenger-count></passenger-count>
+            <passenger-detail></passenger-detail>
             <h3>Passengers</h3>
             <ul>
                 <li *ngFor="let passenger of passengers; let i = index;">
