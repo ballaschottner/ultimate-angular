@@ -20,6 +20,7 @@ import { PassengerDashboardService } from "../../passenger-dashboard.service";
                 (remove)="handleRemove($event)"
             >
             </passenger-detail>
+            <passenger-viewer></passenger-viewer>
         </div>
     `
 })
