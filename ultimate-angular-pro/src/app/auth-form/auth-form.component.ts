@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ViewChildren, AfterViewInit, ContentChildren, QueryList, AfterContentInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChildren, AfterViewInit, ContentChildren, QueryList, AfterContentInit, ChangeDetectorRef, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 import { AuthRememberComponent } from './auth-remember.component';
 import { AuthMessageComponent } from './auth-message.component';
@@ -8,6 +8,8 @@ import { tap } from 'rxjs';
 
 @Component({
   selector: 'auth-form',
+  styles: [`
+  .email {border-color: #9f72e6;}`],
   template: `
     <div>
       <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
@@ -39,7 +41,10 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 
   @Output() submitted: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private renderer: Renderer2
+    ) {}
 
   ngAfterContentInit(): void {
     /* if(this.message) {
@@ -57,7 +62,13 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.email);
+    this.renderer.setAttribute(this.email.nativeElement, 'placeholder', 'Enter your email address');
+    this.renderer.setStyle(this.email.nativeElement, 'email', true);
+    this.renderer.selectRootElement(this.email.nativeElement).focus();
+    // this.email.nativeElement.setAttribute('placeholder', 'Enter your email address');
+    // this.email.nativeElement.classList.add('email');
+    // this.email.nativeElement.focus();
+    console.log(this.email.nativeElement);
     console.log(this.message);
     if(this.message) {
       this.message.forEach((message)=> {
